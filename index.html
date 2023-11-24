@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css"><link rel="stylesheet" href="css/L.Control.Locate.min.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script><script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/univ_surabaya_9.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-7.4888223948876504,112.45635092442217],[-7.121044711448928,112.97366465260025]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_its_manyar_0');
+        map.getPane('pane_its_manyar_0').style.zIndex = 400;
+        var img_its_manyar_0 = 'data/its_manyar_0.png';
+        var img_bounds_its_manyar_0 = [[-2916.0,0.0],[0.0,5184.0]];
+        var layer_its_manyar_0 = new L.imageOverlay(img_its_manyar_0,
+                                              img_bounds_its_manyar_0,
+                                              {pane: 'pane_its_manyar_0'});
+        bounds_group.addLayer(layer_its_manyar_0);
+        map.addLayer(layer_its_manyar_0);
+        map.createPane('pane_its_sukolilo_1');
+        map.getPane('pane_its_sukolilo_1').style.zIndex = 401;
+        var img_its_sukolilo_1 = 'data/its_sukolilo_1.png';
+        var img_bounds_its_sukolilo_1 = [[-683.0,0.0],[0.0,1024.0]];
+        var layer_its_sukolilo_1 = new L.imageOverlay(img_its_sukolilo_1,
+                                              img_bounds_its_sukolilo_1,
+                                              {pane: 'pane_its_sukolilo_1'});
+        bounds_group.addLayer(layer_its_sukolilo_1);
+        map.addLayer(layer_its_sukolilo_1);
+        map.createPane('pane_uin_2');
+        map.getPane('pane_uin_2').style.zIndex = 402;
+        var img_uin_2 = 'data/uin_2.png';
+        var img_bounds_uin_2 = [[-683.0,0.0],[0.0,1024.0]];
+        var layer_uin_2 = new L.imageOverlay(img_uin_2,
+                                              img_bounds_uin_2,
+                                              {pane: 'pane_uin_2'});
+        bounds_group.addLayer(layer_uin_2);
+        map.addLayer(layer_uin_2);
+        map.createPane('pane_unair_a_3');
+        map.getPane('pane_unair_a_3').style.zIndex = 403;
+        var img_unair_a_3 = 'data/unair_a_3.png';
+        var img_bounds_unair_a_3 = [[-542.0,0.0],[0.0,960.0]];
+        var layer_unair_a_3 = new L.imageOverlay(img_unair_a_3,
+                                              img_bounds_unair_a_3,
+                                              {pane: 'pane_unair_a_3'});
+        bounds_group.addLayer(layer_unair_a_3);
+        map.addLayer(layer_unair_a_3);
+        map.createPane('pane_unair_b_4');
+        map.getPane('pane_unair_b_4').style.zIndex = 404;
+        var img_unair_b_4 = 'data/unair_b_4.png';
+        var img_bounds_unair_b_4 = [[-539.0,0.0],[0.0,700.0]];
+        var layer_unair_b_4 = new L.imageOverlay(img_unair_b_4,
+                                              img_bounds_unair_b_4,
+                                              {pane: 'pane_unair_b_4'});
+        bounds_group.addLayer(layer_unair_b_4);
+        map.addLayer(layer_unair_b_4);
+        map.createPane('pane_unair_c_5');
+        map.getPane('pane_unair_c_5').style.zIndex = 405;
+        var img_unair_c_5 = 'data/unair_c_5.png';
+        var img_bounds_unair_c_5 = [[-865.0,0.0],[0.0,1200.0]];
+        var layer_unair_c_5 = new L.imageOverlay(img_unair_c_5,
+                                              img_bounds_unair_c_5,
+                                              {pane: 'pane_unair_c_5'});
+        bounds_group.addLayer(layer_unair_c_5);
+        map.addLayer(layer_unair_c_5);
+        map.createPane('pane_unesa_ketintang_6');
+        map.getPane('pane_unesa_ketintang_6').style.zIndex = 406;
+        var img_unesa_ketintang_6 = 'data/unesa_ketintang_6.png';
+        var img_bounds_unesa_ketintang_6 = [[-480.0,0.0],[0.0,720.0]];
+        var layer_unesa_ketintang_6 = new L.imageOverlay(img_unesa_ketintang_6,
+                                              img_bounds_unesa_ketintang_6,
+                                              {pane: 'pane_unesa_ketintang_6'});
+        bounds_group.addLayer(layer_unesa_ketintang_6);
+        map.addLayer(layer_unesa_ketintang_6);
+        map.createPane('pane_unesa_lidahwetan_7');
+        map.getPane('pane_unesa_lidahwetan_7').style.zIndex = 407;
+        var img_unesa_lidahwetan_7 = 'data/unesa_lidahwetan_7.png';
+        var img_bounds_unesa_lidahwetan_7 = [[-540.0,0.0],[0.0,720.0]];
+        var layer_unesa_lidahwetan_7 = new L.imageOverlay(img_unesa_lidahwetan_7,
+                                              img_bounds_unesa_lidahwetan_7,
+                                              {pane: 'pane_unesa_lidahwetan_7'});
+        bounds_group.addLayer(layer_unesa_lidahwetan_7);
+        map.addLayer(layer_unesa_lidahwetan_7);
+        map.createPane('pane_upnv_jatim_8');
+        map.getPane('pane_upnv_jatim_8').style.zIndex = 408;
+        var img_upnv_jatim_8 = 'data/upnv_jatim_8.png';
+        var img_bounds_upnv_jatim_8 = [[-1200.0,0.0],[0.0,1200.0]];
+        var layer_upnv_jatim_8 = new L.imageOverlay(img_upnv_jatim_8,
+                                              img_bounds_upnv_jatim_8,
+                                              {pane: 'pane_upnv_jatim_8'});
+        bounds_group.addLayer(layer_upnv_jatim_8);
+        map.addLayer(layer_upnv_jatim_8);
+        function pop_univ_surabaya_9(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nama'] !== null ? autolinker.link(feature.properties['Nama'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Kampus</th>\
+                        <td>' + (feature.properties['Kampus'] !== null ? autolinker.link(feature.properties['Kampus'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['foto'] !== null ? '<img src="images/' + String(feature.properties['foto']).replace(/[\\\/:]/g, '_').trim() + '">' : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Ranking</th>\
+                        <td>' + (feature.properties['Desk_QS WUR'] !== null ? autolinker.link(feature.properties['Desk_QS WUR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tahun_Didirikan</th>\
+                        <td>' + (feature.properties['Desk_Didirikan'] !== null ? autolinker.link(feature.properties['Desk_Didirikan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">fakultas</th>\
+                        <td>' + (feature.properties['Desk_Fakultas'] !== null ? autolinker.link(feature.properties['Desk_Fakultas'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_univ_surabaya_9_0(feature) {
+            switch(String(feature.properties['Nama'])) {
+                case 'ITS':
+                    return {
+                pane: 'pane_univ_surabaya_9',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(137,114,238,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'UIN Sunan Ampel':
+                    return {
+                pane: 'pane_univ_surabaya_9',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(188,206,99,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'UNAIR':
+                    return {
+                pane: 'pane_univ_surabaya_9',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,129,109,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'UNESA':
+                    return {
+                pane: 'pane_univ_surabaya_9',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(87,223,110,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'UPNV Jatim':
+                    return {
+                pane: 'pane_univ_surabaya_9',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(236,44,201,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_univ_surabaya_9',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(30,183,217,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_univ_surabaya_9');
+        map.getPane('pane_univ_surabaya_9').style.zIndex = 409;
+        map.getPane('pane_univ_surabaya_9').style['mix-blend-mode'] = 'normal';
+        var layer_univ_surabaya_9 = new L.geoJson(json_univ_surabaya_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_univ_surabaya_9',
+            layerName: 'layer_univ_surabaya_9',
+            pane: 'pane_univ_surabaya_9',
+            onEachFeature: pop_univ_surabaya_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_univ_surabaya_9_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_univ_surabaya_9);
+        map.addLayer(layer_univ_surabaya_9);
+        map.createPane('pane_Positron_10');
+        map.getPane('pane_Positron_10').style.zIndex = 410;
+        var layer_Positron_10 = L.tileLayer('https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            pane: 'pane_Positron_10',
+            opacity: 1.0,
+            attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 20
+        });
+        layer_Positron_10;
+        map.addLayer(layer_Positron_10);
+        setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_univ_surabaya_9,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Nama'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
